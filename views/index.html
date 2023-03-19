@@ -1,58 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/x-icon" />
 
-    <title>DSC SYU :: Git & Github Tutorial!</title>
-    <script type="text/javascript" src="/bower_components/vue/dist/vue.js"></script>
-    <script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
-    <script type="text/javascript" src="/bower_components/axios/dist/axios.js"></script>
-    <script type="text/javascript" src="/javascripts/index.js"></script>
-    <link type="text/css" rel="stylesheet" href="/stylesheets/index.css" />
-</head>
-<body >
-    <div id="app">
-        <div class="title">
-            <p class="sub">Welcome, DSC Sahmyook!</p>
-            <p class="main">Git/Github Tutorial!</p>
-        </div>
-        <div class="menu">
-            <button type="button" class="btn" v-on:click="changeContentState('USERS')" v-bind:class="{ 'active': content_state === 'USERS' }">
-                Users
-            </button>
-            <button type="button" class="btn" v-on:click="changeContentState('COMMITS')" v-bind:class="{ 'active': content_state === 'COMMITS' }">
-                Commits
-            </button>
-        </div>
-        <div class="users-container" v-if="content_state === 'USERS'">
-            <div class="user-item-container" v-for="user in users" >
-                <div class="avatar-container">
-                    <img class="avatar-img" v-bind:src="getAvatarUrl(user.github)"  title="github avatar image"/>
-                </div>
-                <div class="info-container">
-                    <p class="name">{{user.name}}</p>
-                    <a class="github" target="_blank" v-bind:href="getGithubUrl(user.github)">@{{user.github}}</a>
-                    <p class="comment">{{user.comment}}</p>
+        <title>DSC SYU :: Git & Github Tutorial!</title>
+        <script
+            type="text/javascript"
+            src="/bower_components/vue/dist/vue.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://momentjs.com/downloads/moment-with-locales.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="/bower_components/axios/dist/axios.js"
+        ></script>
+        <script type="text/javascript" src="/javascripts/index.js"></script>
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"
+        ></script>
+        <link type="text/css" rel="stylesheet" href="/stylesheets/index.css" />
+    </head>
+    <body>
+        <div id="app">
+            <div class="title">
+                <p class="sub">Welcome, DSC Sahmyook!</p>
+                <p class="main">Git/Github Tutorial!</p>
+            </div>
+            <div class="menu">
+                <button
+                    type="button"
+                    class="btn"
+                    v-on:click="changeContentState('USERS')"
+                    v-bind:class="{ 'active': content_state === 'USERS' }"
+                >
+                    Users
+                </button>
+                <button
+                    type="button"
+                    class="btn"
+                    v-on:click="changeContentState('COMMITS')"
+                    v-bind:class="{ 'active': content_state === 'COMMITS' }"
+                >
+                    Commits
+                </button>
+            </div>
+            <div class="users-container" v-if="content_state === 'USERS'">
+                <div class="user-item-container" v-for="user in users">
+                    <div class="avatar-container">
+                        <img
+                            class="avatar-img"
+                            v-bind:src="getAvatarUrl(user.github)"
+                            title="github avatar image"
+                        />
+                    </div>
+                    <div class="info-container">
+                        <p class="name">{{user.name}}</p>
+                        <a
+                            class="github"
+                            target="_blank"
+                            v-bind:href="getGithubUrl(user.github)"
+                            >@{{user.github}}</a
+                        >
+                        <p class="comment">{{user.comment}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="commits-container" v-if="content_state === 'COMMITS'"> 
-            <div class="commit-item-container" v-for="commit in commits">
-                <div class="info-container">
-                    <p class="subject">{{commit.subject}}</p>
-                    <p class="author-name">{{commit.authorName}}</p>
-                    <p class="author-email">{{commit.authorEmail}}</p>
-                    <div class="item-description">
-                        <a v-bind:href="getCommitUrl(commit.hash)" target="_blank" class="hash">{{commit.abbrevHash}}</a>
-                        <p  class="timestamp">{{formattedDate(commit.authorDate)}}</p>
+            <div class="commits-container" v-if="content_state === 'COMMITS'">
+                <div class="commit-item-container" v-for="commit in commits">
+                    <div class="info-container">
+                        <p class="subject">{{commit.subject}}</p>
+                        <p class="author-name">{{commit.authorName}}</p>
+                        <p class="author-email">{{commit.authorEmail}}</p>
+                        <div class="item-description">
+                            <a
+                                v-bind:href="getCommitUrl(commit.hash)"
+                                target="_blank"
+                                class="hash"
+                                >{{commit.abbrevHash}}</a
+                            >
+                            <p class="timestamp">
+                                {{formattedDate(commit.authorDate)}}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

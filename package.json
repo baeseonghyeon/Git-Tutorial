@@ -1,27 +1,27 @@
 {
-  "name": "git-tutorial",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "watch-sass": "node-sass --watch ./public/scss --output ./public/stylesheets",
-    "build-sass": "node-sass ./public/scss --output ./public/stylesheets",
-    "module-install": "npm install && bower install",
-    "start": "nodemon --exec babel-node ./bin/www"
-  },
-  "dependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.6",
-    "clean-css": ">=4.1.11",
-    "constantinople": ">=3.1.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "ejs": "^3.1.2",
-    "express": "~4.16.0",
-    "gitlog": "^4.0.0",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0",
-    "vue-scrollto": "^2.18.1"
-  }
+    "name": "git-tutorial",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "watch-sass": "node-sass --watch ./public/scss --output ./public/stylesheets",
+        "build-sass": "node-sass ./public/scss --output ./public/stylesheets",
+        "module-install": "npm install && bower install",
+        "start": "nodemon --exec babel-node ./bin/www"
+    },
+    "dependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/node": "^7.8.7",
+        "@babel/preset-env": "^7.9.6",
+        "clean-css": ">=4.1.11",
+        "constantinople": ">=3.1.1",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "ejs": "^3.1.2",
+        "express": "~4.16.0",
+        "gitlog": "^4.0.0",
+        "http-errors": "~1.6.2",
+        "jade": "~1.11.0",
+        "morgan": "~1.9.0",
+        "vue-scrollto": "^2.18.1"
+    }
 }
